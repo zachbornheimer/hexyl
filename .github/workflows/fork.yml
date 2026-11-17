@@ -1,0 +1,42 @@
+name: fork
+
+# This branch (`fork`) holds only fork config: this caller, the carried topic branches
+# (.fork/branches) and recorded conflict resolutions (.fork/rr-cache). `master` mirrors
+# upstream and is fast-forwarded daily; every topic branch is cut from it, so each one is
+# also a clean upstream pull request.
+on:
+  push:
+    branches: [fork]
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Rebuild even when the latest release already ships this merge
+        type: boolean
+        default: false
+
+concurrency:
+  group: fork-release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    uses: zysys/github-workflows/.github/workflows/fork.yml@1d4ac6a8abc3a8f100760439ad1e40b4d421d2f5 # feat/fork-pipeline
+    permissions:
+      contents: write
+    with:
+      scripts_ref: 1d4ac6a8abc3a8f100760439ad1e40b4d421d2f5
+      mirror: master
+      binary: hexyl
+      check: cargo test --locked
+      build: cargo build --release --locked
+      artifact: target/release/hexyl
+      smoke: '"$BIN" --version | grep -q zach'
+      targets: >-
+        [{"target":"darwin-arm64","os":"macos-latest"},
+         {"target":"linux-x64","os":"ubuntu-22.04"}]
+      force: ${{ inputs.force || false }}
