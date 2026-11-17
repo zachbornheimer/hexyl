@@ -63,7 +63,7 @@ const STYLES: Styles = Styles::styled()
     .placeholder(AnsiColor::Cyan.on_default());
 
 #[derive(Debug, Parser)]
-#[command(version, about, max_term_width(90), styles = STYLES)]
+#[command(version = concat!(env!("CARGO_PKG_VERSION"), "+zach"), about, max_term_width(90), styles = STYLES)]
 struct Opt {
     /// The file to display. If no FILE argument is given, read from STDIN.
     #[arg(value_name("FILE"))]
