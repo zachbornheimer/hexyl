@@ -1,9 +1,9 @@
 name: fork
 
-# This branch (`fork`) holds only fork config: this caller, the carried topic branches
-# (.fork/branches) and recorded conflict resolutions (.fork/rr-cache). `master` mirrors
-# upstream and is fast-forwarded daily; every topic branch is cut from it, so each one is
-# also a clean upstream pull request.
+# This branch (`fork`) holds only fork config: this caller, the carried topic
+# branches (.fork/branches) and recorded conflict resolutions (.fork/rr-cache).
+# `master` mirrors upstream and only ever fast-forwards; every topic branch is
+# cut from it, so each one is also a clean upstream pull request. Manage it with `fork`.
 on:
   push:
     branches: [fork]
@@ -25,15 +25,15 @@ permissions:
 
 jobs:
   release:
-    uses: zysys/github-workflows/.github/workflows/fork.yml@1d4ac6a8abc3a8f100760439ad1e40b4d421d2f5 # feat/fork-pipeline
+    uses: zysys/github-workflows/.github/workflows/fork.yml@96bb022c5d09be1f178692b7b84a5b813976fe9d # v2.0.0-rc.1
     permissions:
       contents: write
     with:
-      scripts_ref: 1d4ac6a8abc3a8f100760439ad1e40b4d421d2f5
+      scripts_ref: 96bb022c5d09be1f178692b7b84a5b813976fe9d
       mirror: master
       binary: hexyl
-      check: cargo test --locked
-      build: cargo build --release --locked
+      check: "cargo test --locked"
+      build: "cargo build --release --locked --bin hexyl"
       artifact: target/release/hexyl
       smoke: '"$BIN" --version | grep -q zach'
       targets: >-
