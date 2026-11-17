@@ -1,3 +1,9 @@
+# Unreleased
+
+## Changes
+
+- Mark fork builds with ` [zach fork]` in the help description.
+
 # v0.17.0
 
 ## Features

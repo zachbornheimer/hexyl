@@ -2,7 +2,7 @@
 authors = ["David Peter <mail@david-peter.de>"]
 categories = ["command-line-utilities"]
 keywords = ["hex", "viewer"]
-description = "A command-line hex viewer (zach build)"
+description = "A command-line hex viewer [zach fork]"
 homepage = "https://github.com/sharkdp/hexyl"
 license = "MIT/Apache-2.0"
 name = "hexyl"
