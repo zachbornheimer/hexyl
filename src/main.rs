@@ -42,7 +42,7 @@ const SKIP_HELP_TEXT: &str = "Skip the first N bytes of the input. The N argumen
 A negative value is valid and will seek from the end of the file.";
 
 const BLOCK_SIZE_HELP_TEXT: &str = "Sets the size of the `block` unit to SIZE.
-Examples: --block-size=1024, --block-size=4kB";
+Examples: --block-size=1024, --block-size=4kB [zach]";
 
 const DISPLAY_OFFSET_HELP_TEXT: &str = "Add N bytes to the displayed file position. The N \
                                         argument can also include a unit (see `--length` for \
