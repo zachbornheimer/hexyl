@@ -1,3 +1,9 @@
+# Unreleased
+
+## Other
+
+- Append ` [zach]` to the `--skip` help text (@zachbornheimer).
+
 # v0.17.0
 
 ## Features

@@ -39,7 +39,7 @@ Examples: --length=64, --length=4KiB, --length=0xff";
 
 const SKIP_HELP_TEXT: &str = "Skip the first N bytes of the input. The N argument can also \
                               include a unit (see `--length` for details).
-A negative value is valid and will seek from the end of the file.";
+A negative value is valid and will seek from the end of the file. [zach]";
 
 const BLOCK_SIZE_HELP_TEXT: &str = "Sets the size of the `block` unit to SIZE.
 Examples: --block-size=1024, --block-size=4kB";
