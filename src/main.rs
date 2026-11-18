@@ -35,7 +35,7 @@ const LENGTH_HELP_TEXT: &str = "Only read N bytes from the input. The N argument
                                 a unit with a decimal prefix (kB, MB, ..) or binary prefix (kiB, \
                                 MiB, ..), or can be specified using a hex number. The short \
                                 option '-l' can be used as an alias.
-Examples: --length=64, --length=4KiB, --length=0xff";
+Examples: --length=64, --length=4KiB, --length=0xff [zach]";
 
 const SKIP_HELP_TEXT: &str = "Skip the first N bytes of the input. The N argument can also \
                               include a unit (see `--length` for details).
