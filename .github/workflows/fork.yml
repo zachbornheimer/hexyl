@@ -25,15 +25,15 @@ permissions:
 
 jobs:
   release:
-    uses: zysys/github-workflows/.github/workflows/fork.yml@96bb022c5d09be1f178692b7b84a5b813976fe9d # v2.0.0-rc.1
+    uses: zysys/github-workflows/.github/workflows/fork.yml@57352e0aac9de4021b65725a1c62a442a197239b # v2.0.0
     permissions:
       contents: write
     with:
-      scripts_ref: 96bb022c5d09be1f178692b7b84a5b813976fe9d
+      scripts_ref: 57352e0aac9de4021b65725a1c62a442a197239b
       mirror: master
       binary: hexyl
-      check: "cargo test --locked"
-      build: "cargo build --release --locked --bin hexyl"
+      check: 'cargo test --locked'
+      build: 'cargo build --release --locked --bin hexyl'
       artifact: target/release/hexyl
       smoke: '"$BIN" --version | grep -q zach'
       targets: >-
